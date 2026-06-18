@@ -1,0 +1,24 @@
+---
+format:
+  pdf:
+    documentclass: ../MastersDoctoralThesis
+    classoption: ["12pt", "english", "doublespacing", ""]
+---
+
+# Introduction {#sec-Chapter1}
+
+## Background of the Study
+
+Write something here >> @who_global_tb_report_2025
+
+## Statement of the Problem
+
+Write something here >> @who_tb_knowledge_platform_2026
+
+## General Objective
+
+Write something here >>
+
+## Specific Objectives
+
+Write something here >>

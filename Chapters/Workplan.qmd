@@ -1,0 +1,103 @@
+---
+title: "Thesis Schedule"
+author: Jose P. Rizal
+affiliation: University of the Philippines - Manila
+format:
+  pdf:
+    number-sections: true
+    colorlinks: true
+---
+
+# Research Timeline
+
+```{r}
+#| echo: false
+#| output: false
+
+options(scipen = 999)
+
+# List of required packages
+pkgs <- c(
+  "dplyr",
+  "kableExtra",
+  "plan"
+  )
+
+# Install missing packages
+missing_pkgs <- pkgs[!sapply(pkgs, requireNamespace, quietly = TRUE)]
+if (length(missing_pkgs) > 0)
+  install.packages(missing_pkgs)
+
+# Load all packages
+invisible(lapply(pkgs, library, character.only = TRUE))
+```
+
+```{r}
+#| echo: false
+#| warning: false
+
+gt_object <- plan::read.gantt("../Gantt/workplan.csv") 
+
+df_wp <- data.frame(
+  task = gt_object@data$description,
+  start_t = gt_object@data$start,
+  end_t = gt_object@data$end,
+  status = gt_object@data$done
+)
+
+colnames(df_wp) <- c("Task","Start Date", "End Date", "Status %")
+```
+
+The detailed tasks required to successfully complete this MS thesis are structured in @tbl-workplan, which delineates the tasks, start and end dates, and current completion status of each phase.
+
+```{r}
+#| label: tbl-workplan
+#| tbl-cap: Workplan for MS Thesis
+#| echo: false
+
+kable(
+  df_wp,
+  format = "latex",
+  longtable = TRUE,
+  booktabs = TRUE,
+  ) %>%
+  row_spec(0, font_size = 10) %>%
+  kable_styling(
+    latex_options = c("repeat_header", "hold_position"),
+    repeat_header_text = "\\textit{(Continued)}"
+  )
+  
+```
+
+# Gantt Chart
+
+@fig-workplan presents a Gantt chart based on @tbl-workplan, effectively visualizing the project's operational timeline and task progress.
+
+```{r, fig.width = 10, fig.height = 12}
+#| label: fig-workplan
+#| fig-cap: Timeline of activities for MS Thesis
+#| echo: false
+#| warning: false
+
+p_work <- plot(
+  gt_object,
+  event.label='Thesis Defense',
+  event.time='2026-10-05',
+  col.event=c("blue"),
+  col.done=c("lightblue"),
+  col.notdone=c("beige"),
+  main="MS Thesis Workplan"
+)
+legend(
+  "topright",
+  pch=22,
+  pt.cex=2,
+  cex=0.9,
+  pt.bg=c("lightblue", "beige"),
+  border="black",
+  legend=c("Done", "Not Done"),
+  bg="white",
+  xpd=TRUE
+)
+```
+

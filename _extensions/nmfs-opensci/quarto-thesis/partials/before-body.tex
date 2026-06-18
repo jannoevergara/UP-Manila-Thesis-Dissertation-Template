@@ -1,0 +1,181 @@
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+% \vspace*{.06\textheight}
+% {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+% \textsc{\Large Masteral Thesis}\\[0.5cm] % Thesis type
+
+% \HRule \\[0.4cm] % Horizontal line
+{\Large\ttitle\par} % Thesis title
+\vspace{4ex}
+% \HRule \\[1.5cm] % Horizontal line
+
+\large {A Master's Thesis Submitted to the\\ Faculty of the Graduate Program in the}\\% University requirement text
+\large\groupname\\ % DPSM
+\large\deptname\\ % CAS
+\large\univname\\ % UPM
+\vspace{4ex}
+
+\large {In Partial Fulfillment of the Requirements}\\
+\large {For the Degree of}\\
+\large\degreename\\ % MSHI-Bioinformatics
+\vspace{5ex}
+
+\large{By}\\
+\large\authorname\\
+$if(book.date)$
+{\large $book.date$}\\ % Date
+$endif$
+\vspace{6ex}
+
+% Permission table
+\small{Permission is given for the following people to have access to this thesis:}
+\vspace{1ex}
+\begin{tabular}{|>{\small\centering\arraybackslash}p{14cm}|c|}
+    \hline
+    Available to the general public                              & \small Yes \\ \hline
+    Available only after consultation with author/thesis adviser & \small No  \\ \hline
+    Available only to those bound by confidentiality agreement   & \small No  \\ \hline
+\end{tabular}
+
+\vspace{5ex}
+% Signature lines — left aligned with indent
+\small\hspace{5cm} Student's signature: \underline{\hspace{5cm}}
+\vspace{5ex}
+\small\hspace{5cm} Signature of thesis adviser: \underline{\hspace{4cm}}
+
+\end{center}
+\end{titlepage}
+
+\includepdf[pages=-, pagecommand={}]{FORMS/UPM-NGOHS-Form-4-Certificate-of-Acceptance.pdf}
+\includepdf[pages=-, pagecommand={}]{FORMS/UPM-NGOHS-Form-3-Completion-Approval-Sheet.pdf}
+
+% %----------------------------------------------------------------------------------------
+% %	DECLARATION PAGE
+% %----------------------------------------------------------------------------------------
+% $if(thesis.declaration)$
+% \begin{declaration}
+% \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+% $if(thesis.declaration.text)$
+% $thesis.declaration.text$
+% $else$
+% \input{"$thesis.declaration$"}
+% $endif$
+
+% \end{declaration}
+
+% \cleardoublepage
+% $endif$
+
+% $if(thesis.quotation)$
+% %----------------------------------------------------------------------------------------
+% %	QUOTATION PAGE
+% %----------------------------------------------------------------------------------------
+
+% \vspace*{0.2\textheight}
+
+% $if(thesis.quotation.text)$
+% \noindent``{\itshape $thesis.quotation.text$}''\bigbreak
+
+% \hfill $thesis.quotation.attribution$
+% $else$
+% \input{``$thesis.quotation$''}
+% $endif$
+
+% $endif$
+
+% $--	LIST OF CONTENTS/FIGURES/TABLES PAGES
+
+\begingroup
+\hypersetup{linkcolor=$if(toclinkcolor)$$toclinkcolor$$else$black$endif$}
+
+\tableofcontents % Prints the main table of contents
+
+\listoftables % Prints the list of tables
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoffigures % Prints the list of figures
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+\endgroup
+
+$if(thesis.acknowledgements)$
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+$if(thesis.acknowledgements.text)$
+$thesis.acknowledgements.text$
+$else$
+\input{"$thesis.acknowledgements$"}
+$endif$
+\end{acknowledgements}
+
+$endif$
+
+$if(abstract)$
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+\indent{$abstract$}
+\end{abstract}
+
+$endif$
+
+\iraggedright % Do not include the abstract in left justifying
+
+% $if(thesis.abbreviations)$
+% %----------------------------------------------------------------------------------------
+% %	ABBREVIATIONS
+% %----------------------------------------------------------------------------------------
+
+% \input{"$thesis.abbreviations$"}
+
+% $endif$
+
+% $if(thesis.constants)$
+% %----------------------------------------------------------------------------------------
+% %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+% %----------------------------------------------------------------------------------------
+
+% \input{"$thesis.constants$"}
+
+% $endif$
+
+% $if(thesis.symbols)$
+% %----------------------------------------------------------------------------------------
+% %	SYMBOLS
+% %----------------------------------------------------------------------------------------
+
+% \input{"$thesis.symbols$"}
+
+% $endif$
+
+$if(thesis.dedication)$
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\dedicatory{\input{"$thesis.dedication$"}} 
+
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style

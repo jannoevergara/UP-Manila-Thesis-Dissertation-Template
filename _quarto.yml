@@ -1,0 +1,64 @@
+project:
+  type: book
+  output-dir: .
+
+book:
+  title: University of the Philippines - Manila Thesis and Dissertation Template
+  date: September 2025
+  author:
+    name: Jose Protacio Rizal Mercado y Alonzo Realonda
+    url: ""
+  downloads: [pdf]
+  abstract: |
+    \indent Noli Me Tangere El Filibusterismo Makamisa Laong Laan Joe Sobre la indolencia de los filipinos Filipinas dentro de cien años La solidaridad Dimasalang May Pagasa P. Jacinto
+  chapters:
+    - index.qmd
+    - Chapters/Chapter2.qmd
+    - Chapters/Chapter3.qmd
+    - Chapters/Chapter4.qmd
+    - Chapters/Chapter5.qmd
+    - Chapters/Chapter6.qmd
+    - Chapters/Chapter7.qmd
+    - references.qmd
+  appendices:
+    - Appendices/AppendixA.qmd
+
+  repo-url: https://gitlab.com/jannoevergara/up-manila-thesis-dissertation-template
+  repo-actions: [edit, source, issue]
+  search: true
+
+thesis:
+  supervisor: 
+    name: John Doe, PhD
+    url: ""
+  degree-name: Master of Science in Health Informatics - Bioinformatics
+  university: University of the Philippines Manila
+  department: College of Arts and Sciences
+  group: Department of Physical Sciences and Mathematics
+  faculty: ""
+  declaration: "Frontmatter/declaration.tex"
+  quotation:
+    text: "Do unto others..."
+    attribution: unknown
+  acknowledgements: "Frontmatter/acknowledgements.tex"
+  abbreviations: "Frontmatter/abbreviations.tex"
+  symbols: "Frontmatter/symbols.tex"
+  dedication: "Frontmatter/dedication.tex"
+  logo: images/up-manila.png
+  logo-height: "3cm"
+
+bibliography: [bibliography.bib]
+
+execute:
+  echo: false
+  code-overflow: wrap
+
+# urlcolor changes the url color in the body of the PDF
+# linkcolor changes color of internal links (like to figures)
+# toclinkcolor changes color of toc, lof and lot links
+format:
+  quarto-thesis-pdf: 
+    urlcolor: blue
+    toclinkcolor: black
+    toc-depth: 2
+    indent: true
